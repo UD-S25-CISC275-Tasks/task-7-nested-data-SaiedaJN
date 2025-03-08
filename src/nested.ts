@@ -246,20 +246,20 @@ function updateOptions(
 // }
 
 
-export function duplicateQuestionInArray(
-    questions: Question[],
-    targetId: number,
-    newId: number,
-): Question[] {
-    const index = questions.findIndex((q) => q.id === targetId);
-    return index === -1 ? questions : (
-            [
-                ...questions.slice(0, index + 1),
-                duplicateQuestion(newId, questions[index]),
-                ...questions.slice(index + 1),
-            ]
-        );
-}
+// export function duplicateQuestionInArray(
+//     questions: Question[],
+//     targetId: number,
+//     newId: number,
+// ): Question[] {
+//     const index = questions.findIndex((q) => q.id === targetId);
+//     return index === -1 ? questions : (
+//             [
+//                 ...questions.slice(0, index + 1),
+//                 duplicateQuestion(newId, questions[index]),
+//                 ...questions.slice(index + 1),
+//             ]
+//         );
+// }
 
 
 
