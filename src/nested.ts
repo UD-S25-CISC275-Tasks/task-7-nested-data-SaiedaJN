@@ -230,36 +230,21 @@ function updateOptions(
  * function you defined previously; the `newId` is the parameter to use for the duplicate's ID.
  */
 
-// export function duplicateQuestionInArray(
-//     questions: Question[],
-//     targetId: number,
-//     newId: number,
-// ): Question[] {
-//     const index = questions.findIndex((q) => q.id === targetId);
-//     if(index === -1) return questions;
-//     const duplicate = duplicateQuestion(newId, questions[index]);
-//     return [
-//         ...questions.slice(0, index + 1),
-//         duplicate,
-//         ...questions.slice(index +1),
-//     ];
-// }
 
-
-// export function duplicateQuestionInArray(
-//     questions: Question[],
-//     targetId: number,
-//     newId: number,
-// ): Question[] {
-//     const index = questions.findIndex((q) => q.id === targetId);
-//     return index === -1 ? questions : (
-//             [
-//                 ...questions.slice(0, index + 1),
-//                 duplicateQuestion(newId, questions[index]),
-//                 ...questions.slice(index + 1),
-//             ]
-//         );
-// }
+export function duplicateQuestionInArray(
+    questions: Question[],
+    targetId: number,
+    newId: number,
+): Question[] {
+    const index = questions.findIndex((q) => q.id === targetId);
+    return index === -1 ? questions : (
+            [
+                ...questions.slice(0, index + 1),
+                duplicateQuestion(newId, questions[index]),
+                ...questions.slice(index + 1),
+            ]
+        );
+}
 
 
 
