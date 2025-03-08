@@ -129,14 +129,7 @@ export function sameType(questions: Question[]): boolean {
  * you defined in the `objects.ts` file.
  */
 
-export function addNewQuestion(
-    questions: Question[],
-    id: number,
-    name: string,
-    type: QuestionType,
-): Question[] {
-    return [...questions, makeBlankQuestion(id, name, type)];
-}
+
 
 export function makeBlankQuestion(
     id: number,
@@ -153,6 +146,15 @@ export function makeBlankQuestion(
         points: 1,
         published: false,
     };
+}
+
+export function addNewQuestion(
+    questions: Question[],
+    id: number,
+    name: string,
+    type: QuestionType,
+): Question[] {
+    return [...questions, makeBlankQuestion(id, name, type)];
 }
 
 
@@ -196,17 +198,6 @@ export function changeQuestionTypeById(
  * can make it simpler! Break down complicated tasks into little pieces.
  */
 
-export function editOption(
-    questions: Question[],
-    targetId: number,
-    targetOptionIndex: number,
-    newOption: string,
-): Question[] {
-    return questions.map((question) =>
-        question.id === targetId ?
-            {...question, options: updateOptions(question.options,targetOptionIndex,newOption,),} :   question, );
-}
-
 
 function updateOptions(
     options: string[],
@@ -221,6 +212,27 @@ function updateOptions(
         );
     }
 }
+
+export function editOption(
+    questions: Question[],
+    targetId: number,
+    targetOptionIndex: number,
+    newOption: string,
+): Question[] {
+    return questions.map((question) =>
+        question.id === targetId ?
+            {
+                ...question,
+                options: updateOptions(
+                    question.options,
+                    targetOptionIndex,
+                    newOption,
+                ),
+            }
+        :   question,
+    );
+}
+
 
 
 /***
